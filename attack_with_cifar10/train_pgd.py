@@ -2,12 +2,13 @@ import argparse
 import logging
 import os
 import time
-
-import apex.amp as amp
+from tqdm import tqdm
+# import apex.amp as amp
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from datetime import datetime
 
 from preact_resnet import PreActResNet18
 from utils import (upper_limit, lower_limit, std, clamp, get_loaders,
@@ -45,7 +46,7 @@ def get_args():
 
 def main():
     args = get_args()
-
+    args.out_dir += '_{}_{}'.format(datetime.now().month,datetime.now().day)
     if not os.path.exists(args.out_dir):
         os.mkdir(args.out_dir)
     logfile = os.path.join(args.out_dir, 'output.log')
@@ -72,10 +73,10 @@ def main():
     model.train()
 
     opt = torch.optim.SGD(model.parameters(), lr=args.lr_max, momentum=args.momentum, weight_decay=args.weight_decay)
-    amp_args = dict(opt_level=args.opt_level, loss_scale=args.loss_scale, verbosity=False)
-    if args.opt_level == 'O2':
-        amp_args['master_weights'] = args.master_weights
-    model, opt = amp.initialize(model, opt, **amp_args)
+    # amp_args = dict(opt_level=args.opt_level, loss_scale=args.loss_scale, verbosity=False)
+    # if args.opt_level == 'O2':
+    #     amp_args['master_weights'] = args.master_weights
+    # model, opt = amp.initialize(model, opt, **amp_args)
     criterion = nn.CrossEntropyLoss()
 
     lr_steps = args.epochs * len(train_loader)
@@ -88,12 +89,13 @@ def main():
     # Training
     start_train_time = time.time()
     logger.info('Epoch \t Seconds \t LR \t \t Train Loss \t Train Acc')
+    max_acc = -1
     for epoch in range(args.epochs):
         start_epoch_time = time.time()
         train_loss = 0
         train_acc = 0
         train_n = 0
-        for i, (X, y) in enumerate(train_loader):
+        for i, (X, y) in enumerate(tqdm(train_loader)):
             X, y = X.cuda(), y.cuda()
             delta = torch.zeros_like(X).cuda()
             if args.delta_init == 'random':
@@ -104,8 +106,9 @@ def main():
             for _ in range(args.attack_iters):
                 output = model(X + delta)
                 loss = criterion(output, y)
-                with amp.scale_loss(loss, opt) as scaled_loss:
-                    scaled_loss.backward()
+                # with amp.scale_loss(loss, opt) as scaled_loss:
+                    # scaled_loss.backward()
+                loss.backward()
                 grad = delta.grad.detach()
                 delta.data = clamp(delta + alpha * torch.sign(grad), -epsilon, epsilon)
                 delta.data = clamp(delta, lower_limit - X, upper_limit - X)
@@ -114,17 +117,32 @@ def main():
             output = model(X + delta)
             loss = criterion(output, y)
             opt.zero_grad()
-            with amp.scale_loss(loss, opt) as scaled_loss:
-                scaled_loss.backward()
+            # with amp.scale_loss(loss, opt) as scaled_loss:
+            #     scaled_loss.backward()
+            loss.backward()
             opt.step()
+            if i % 25 == 0:
+                print('Epoch {} Iteration {} Loss {:.6f}'.format(epoch,i,loss.item()* y.size(0)))
             train_loss += loss.item() * y.size(0)
             train_acc += (output.max(1)[1] == y).sum().item()
             train_n += y.size(0)
             scheduler.step()
+
         epoch_time = time.time()
         lr = scheduler.get_lr()[0]
         logger.info('%d \t %.1f \t \t %.4f \t %.4f \t %.4f',
             epoch, epoch_time - start_epoch_time, lr, train_loss/train_n, train_acc/train_n)
+        if (epoch+1) % 10 == 0:
+            model.eval()
+            pgd_loss, pgd_acc = evaluate_pgd(test_loader, model, args.attack_iters, args.restarts)
+            test_loss, test_acc = evaluate_standard(test_loader, model)
+
+            logger.info('Test Loss \t Test Acc \t PGD Loss \t PGD Acc')
+            logger.info('%.4f \t \t %.4f \t %.4f \t %.4f', test_loss, test_acc, pgd_loss, pgd_acc)
+            if test_acc > max_acc:
+                max_acc = test_acc
+                torch.save(model.state_dict(), os.path.join(args.out_dir, 'model.pth'))
+            model.train() 
     train_time = time.time()
     torch.save(model.state_dict(), os.path.join(args.out_dir, 'model.pth'))
     logger.info('Total train time: %.4f minutes', (train_time - start_train_time)/60)
@@ -135,7 +153,7 @@ def main():
     model_test.float()
     model_test.eval()
 
-    pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 50, 10)
+    pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 20, 5)
     test_loss, test_acc = evaluate_standard(test_loader, model_test)
 
     logger.info('Test Loss \t Test Acc \t PGD Loss \t PGD Acc')

@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 from torch.utils.data.sampler import SubsetRandomSampler
 import numpy as np
+from tqdm import tqdm
 
 cifar10_mean = (0.4914, 0.4822, 0.4465)
 cifar10_std = (0.2471, 0.2435, 0.2616)
@@ -93,7 +94,7 @@ def evaluate_pgd(test_loader, model, attack_iters, restarts):
     pgd_acc = 0
     n = 0
     model.eval()
-    for i, (X, y) in enumerate(test_loader):
+    for i, (X, y) in enumerate(tqdm(test_loader)):
         X, y = X.cuda(), y.cuda()
         pgd_delta = attack_pgd(model, X, y, epsilon, alpha, attack_iters, restarts)
         with torch.no_grad():
@@ -111,7 +112,7 @@ def evaluate_standard(test_loader, model):
     n = 0
     model.eval()
     with torch.no_grad():
-        for i, (X, y) in enumerate(test_loader):
+        for i, (X, y) in enumerate(tqdm(test_loader)):
             X, y = X.cuda(), y.cuda()
             output = model(X)
             loss = F.cross_entropy(output, y)
