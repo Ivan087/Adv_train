@@ -108,6 +108,7 @@ def main():
                 delta = torch.zeros_like(X).cuda()
             if args.delta_init == 'random':
                 for j in range(len(epsilon)):
+                    # len(epsilon) == 3: initialize noise for each channel
                     delta[:, j, :, :].uniform_(-epsilon[j][0][0].item(), epsilon[j][0][0].item())
                 delta.data = clamp(delta, lower_limit - X, upper_limit - X)
             delta.requires_grad = True
@@ -185,7 +186,7 @@ def main():
     model_test.float()
     model_test.eval()
 
-    pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 50, 10)
+    pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 1, 1)
     test_loss, test_acc = evaluate_standard(test_loader, model_test)
 
     logger.info('Test Loss \t Test Acc \t PGD Loss \t PGD Acc')
