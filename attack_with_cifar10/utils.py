@@ -5,12 +5,29 @@ from torchvision import datasets, transforms
 from torch.utils.data.sampler import SubsetRandomSampler
 import numpy as np
 from tqdm import tqdm
+import os
+
+
+DATASET = os.getenv('DATASET_NAME')
 
 cifar10_mean = (0.4914, 0.4822, 0.4465)
 cifar10_std = (0.2471, 0.2435, 0.2616)
 
-mu = torch.tensor(cifar10_mean).view(3,1,1).cuda()
-std = torch.tensor(cifar10_std).view(3,1,1).cuda()
+# MNIST meand and std
+mnist_mean = 0.1307
+mnist_std = 0.3081
+
+if DATASET == 'MNIST' or DATASET == 'mnist':
+    dataset_mean = mnist_mean
+    dataset_std = mnist_std
+    mu = torch.tensor(mnist_mean).view(1,1,1).cuda()
+    std = torch.tensor(mnist_std).view(1,1,1).cuda()
+elif DATASET == 'CIFAR10' or DATASET == 'cifar10':
+    dataset_mean = cifar10_mean
+    dataset_std = cifar10_std
+    mu = torch.tensor(cifar10_mean).view(3,1,1).cuda()
+    std = torch.tensor(cifar10_std).view(3,1,1).cuda()
+
 
 upper_limit = ((1 - mu)/ std)
 lower_limit = ((0 - mu)/ std)
@@ -25,17 +42,24 @@ def get_loaders(dir_, batch_size):
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize(cifar10_mean, cifar10_std),
+        transforms.Normalize(dataset_mean, dataset_std),
     ])
     test_transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize(cifar10_mean, cifar10_std),
+        transforms.Normalize(dataset_mean, dataset_std),
     ])
     num_workers = 2
-    train_dataset = datasets.CIFAR10(
-        dir_, train=True, transform=train_transform, download=True)
-    test_dataset = datasets.CIFAR10(
-        dir_, train=False, transform=test_transform, download=True)
+    if DATASET.lower() == 'cifar10':
+        train_dataset = datasets.CIFAR10(
+            dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.CIFAR10(
+            dir_, train=False, transform=test_transform, download=True)
+    elif DATASET.lower() == 'mnist':
+        dir_ = dir_.replace('cifar10','mnist')
+        train_dataset = datasets.MNIST(
+            dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.MNIST(
+            dir_, train=False, transform=test_transform, download=True)
     train_loader = torch.utils.data.DataLoader(
         dataset=train_dataset,
         batch_size=batch_size,

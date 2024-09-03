@@ -14,8 +14,8 @@ from torch.autograd import grad
 # from apex import amp
 
 from preact_resnet import PreActResNet18
-from utils import (upper_limit, lower_limit, std, clamp, get_loaders,
-    attack_pgd, evaluate_pgd, evaluate_standard)
+# from utils import (upper_limit, lower_limit, std, clamp, get_loaders,
+#     attack_pgd, evaluate_pgd, evaluate_standard)
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +24,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch-size', default=128, type=int)
     parser.add_argument('--data-dir', default='../../cifar-data', type=str)
+    parser.add_argument('--dataset', default='cifar10', type=str)
     parser.add_argument('--epochs', default=100, type=int)
     parser.add_argument('--lr-schedule', default='cyclic', choices=['cyclic', 'multistep'])
     parser.add_argument('--lr-min', default=0., type=float)
@@ -55,6 +56,11 @@ def main():
     if os.path.exists(logfile):
         os.remove(logfile)
 
+    os.environ["DATASET_NAME"] = args.dataset
+
+    from utils import (upper_limit, lower_limit, std, clamp, get_loaders,
+    attack_pgd, evaluate_pgd, evaluate_standard)
+
     logging.basicConfig(
         format='[%(asctime)s] - %(message)s',
         datefmt='%Y/%m/%d %H:%M:%S',
@@ -72,7 +78,10 @@ def main():
     alpha = (args.alpha / 255.) / std
     pgd_alpha = (2 / 255.) / std
 
-    model = PreActResNet18().cuda()
+    if args.dataset.lower() == 'mnist':
+         model = PreActResNet18(in_channel=1).cuda()
+    else:
+        model = PreActResNet18().cuda()
     model.train()
 
     opt = torch.optim.Adam(model.parameters(), lr=args.lr_max)
@@ -158,7 +167,10 @@ def main():
     logger.info('Total train time: %.4f minutes', (train_time - start_train_time)/60)
 
     # Evaluation
-    model_test = PreActResNet18().cuda()
+    if args.dataset.lower() == 'mnist':
+         model_test = PreActResNet18(in_channel=1).cuda()
+    else:
+        model_test = PreActResNet18().cuda()
     model_test.load_state_dict(best_state_dict)
     model_test.float()
     model_test.eval()

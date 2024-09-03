@@ -4,8 +4,7 @@ import torch.nn.functional as F
 import logging
 
 from preact_resnet import PreActResNet18
-from utils import (upper_limit, lower_limit, std, clamp, get_loaders,
-    attack_pgd, evaluate_pgd, evaluate_standard)
+from utils import (clamp, get_loaders, attack_pgd, evaluate_pgd, evaluate_standard)
 
 model_path = './train_alg2_output/model.pth'
 model_test = PreActResNet18().cuda()
