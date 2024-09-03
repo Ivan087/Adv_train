@@ -17,11 +17,20 @@ cifar10_std = (0.2471, 0.2435, 0.2616)
 mnist_mean = 0.1307
 mnist_std = 0.3081
 
+# FashionMNIST meand and std
+fmnist_mean = 0.2861
+fmnist_std = 0.3530
+
 if DATASET == 'MNIST' or DATASET == 'mnist':
     dataset_mean = mnist_mean
     dataset_std = mnist_std
     mu = torch.tensor(mnist_mean).view(1,1,1).cuda()
     std = torch.tensor(mnist_std).view(1,1,1).cuda()
+elif DATASET.lower() == 'fashionmnist':
+    dataset_mean = fmnist_mean
+    dataset_std = fmnist_std
+    mu = torch.tensor(fmnist_mean).view(1,1,1).cuda()
+    std = torch.tensor(fmnist_std).view(1,1,1).cuda()
 elif DATASET == 'CIFAR10' or DATASET == 'cifar10':
     dataset_mean = cifar10_mean
     dataset_std = cifar10_std
@@ -55,10 +64,16 @@ def get_loaders(dir_, batch_size):
         test_dataset = datasets.CIFAR10(
             dir_, train=False, transform=test_transform, download=True)
     elif DATASET.lower() == 'mnist':
-        dir_ = dir_.replace('cifar10','mnist')
+        dir_ = dir_.replace('cifar-data','mnist')
         train_dataset = datasets.MNIST(
             dir_, train=True, transform=train_transform, download=True)
         test_dataset = datasets.MNIST(
+            dir_, train=False, transform=test_transform, download=True)
+    elif DATASET.lower() == 'fashionmnist':
+        dir_ = dir_.replace('cifar-data','fashionmnist')
+        train_dataset = datasets.FashionMNIST(
+            dir_, train=True, transform=train_transform, download=True)
+        test_dataset = datasets.FashionMNIST(
             dir_, train=False, transform=test_transform, download=True)
     train_loader = torch.utils.data.DataLoader(
         dataset=train_dataset,
