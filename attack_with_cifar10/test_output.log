@@ -26,3 +26,94 @@
 [2024/08/21 18:06:27] - Batch size 1024 	 attack iteration 20 	 restarts 5
 [2024/08/21 18:06:27] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
 [2024/08/21 18:06:27] - 0.5381 	 	 0.8949 	 10.5162 	 0.0000
+                        Epochs 100, 
+[2024/09/04 11:25:17] - 
+[2024/09/04 11:25:17] - Output model ./mnist_fgsm/model.pth
+[2024/09/04 11:25:17] - Batch size 1024 	 attack iteration 1 	 restarts 1
+[2024/09/04 11:25:17] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:25:17] - 0.0321 	 	 0.9906 	 0.0335 	 0.9900
+[2024/09/04 11:25:26] - 
+[2024/09/04 11:25:26] - Output model ./mnist_alg/model.pth
+[2024/09/04 11:25:26] - Batch size 1024 	 attack iteration 1 	 restarts 1
+[2024/09/04 11:25:26] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:25:26] - 0.0676 	 	 0.9824 	 0.0807 	 0.9742
+[2024/09/04 11:25:35] - 
+[2024/09/04 11:25:35] - Output model ./mnist_alg_reg/model.pth
+[2024/09/04 11:25:35] - Batch size 1024 	 attack iteration 1 	 restarts 1
+[2024/09/04 11:25:35] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:25:35] - 0.0341 	 	 0.9919 	 0.0356 	 0.9906
+[2024/09/04 11:26:18] - 
+[2024/09/04 11:26:18] - Output model ./mnist_fgsm/model.pth
+[2024/09/04 11:26:18] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/09/04 11:26:18] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:26:18] - 0.0321 	 	 0.9906 	 0.0382 	 0.9865
+[2024/09/04 11:27:02] - 
+[2024/09/04 11:27:02] - Output model ./mnist_alg/model.pth
+[2024/09/04 11:27:02] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/09/04 11:27:02] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:27:02] - 0.0676 	 	 0.9824 	 0.1405 	 0.9272
+[2024/09/04 11:27:45] - 
+[2024/09/04 11:27:45] - Output model ./mnist_alg_reg/model.pth
+[2024/09/04 11:27:45] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/09/04 11:27:45] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:27:45] - 0.0341 	 	 0.9919 	 0.0398 	 0.9871
+[2024/09/04 11:34:16] - 
+[2024/09/04 11:34:16] - Output model ./mnist_fgsm/model.pth
+[2024/09/04 11:34:16] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/09/04 11:34:16] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:34:16] - 0.0321 	 	 0.9906 	 0.0393 	 0.9864
+[2024/09/04 11:40:48] - 
+[2024/09/04 11:40:48] - Output model ./mnist_alg/model.pth
+[2024/09/04 11:40:48] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/09/04 11:40:48] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:40:48] - 0.0676 	 	 0.9824 	 0.1576 	 0.9262
+[2024/09/04 11:47:18] - 
+[2024/09/04 11:47:18] - Output model ./mnist_alg_reg/model.pth
+[2024/09/04 11:47:18] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/09/04 11:47:18] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 11:47:18] - 0.0341 	 	 0.9919 	 0.0416 	 0.9871
+[2024/09/04 18:22:20] - 
+[2024/09/04 18:22:20] - Output model ./fashion_fgsm/model.pth
+[2024/09/04 18:22:20] - Batch size 1024 	 attack iteration 1 	 restarts 1
+[2024/09/04 18:22:20] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:22:20] - 0.2313 	 	 0.9302 	 0.2464 	 0.9158
+[2024/09/04 18:22:29] - 
+[2024/09/04 18:22:29] - Output model ./fashion_alg/model.pth
+[2024/09/04 18:22:29] - Batch size 1024 	 attack iteration 1 	 restarts 1
+[2024/09/04 18:22:29] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:22:29] - 0.3636 	 	 0.9360 	 0.9430 	 0.8091
+[2024/09/04 18:22:38] - 
+[2024/09/04 18:22:38] - Output model ./fashion_alg_reg/model.pth
+[2024/09/04 18:22:38] - Batch size 1024 	 attack iteration 1 	 restarts 1
+[2024/09/04 18:22:38] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:22:38] - 0.2586 	 	 0.9322 	 0.3006 	 0.9044
+[2024/09/04 18:23:21] - 
+[2024/09/04 18:23:21] - Output model ./fashion_fgsm/model.pth
+[2024/09/04 18:23:21] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/09/04 18:23:21] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:23:21] - 0.2313 	 	 0.9302 	 0.3046 	 0.8620
+[2024/09/04 18:24:05] - 
+[2024/09/04 18:24:05] - Output model ./fashion_alg/model.pth
+[2024/09/04 18:24:05] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/09/04 18:24:05] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:24:05] - 0.3636 	 	 0.9360 	 2.3008 	 0.2639
+[2024/09/04 18:24:48] - 
+[2024/09/04 18:24:48] - Output model ./fashion_alg_reg/model.pth
+[2024/09/04 18:24:48] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/09/04 18:24:48] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:24:48] - 0.2586 	 	 0.9322 	 0.4908 	 0.7521
+[2024/09/04 18:31:17] - 
+[2024/09/04 18:31:17] - Output model ./fashion_fgsm/model.pth
+[2024/09/04 18:31:17] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/09/04 18:31:17] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:31:17] - 0.2313 	 	 0.9302 	 0.3246 	 0.8591
+[2024/09/04 18:37:46] - 
+[2024/09/04 18:37:46] - Output model ./fashion_alg/model.pth
+[2024/09/04 18:37:46] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/09/04 18:37:46] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:37:46] - 0.3636 	 	 0.9360 	 3.3257 	 0.2231
+[2024/09/04 18:44:16] - 
+[2024/09/04 18:44:16] - Output model ./fashion_alg_reg/model.pth
+[2024/09/04 18:44:16] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/09/04 18:44:16] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/09/04 18:44:16] - 0.2586 	 	 0.9322 	 0.5847 	 0.7260

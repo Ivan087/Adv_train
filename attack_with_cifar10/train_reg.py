@@ -78,7 +78,7 @@ def main():
     alpha = (args.alpha / 255.) / std
     pgd_alpha = (2 / 255.) / std
 
-    if args.dataset.lower() == 'mnist':
+    if args.dataset.lower() in ('mnist','fashionmnist'):
          model = PreActResNet18(in_channel=1).cuda()
     else:
         model = PreActResNet18().cuda()
@@ -167,15 +167,15 @@ def main():
     logger.info('Total train time: %.4f minutes', (train_time - start_train_time)/60)
 
     # Evaluation
-    if args.dataset.lower() == 'mnist':
-         model_test = PreActResNet18(in_channel=1).cuda()
+    if args.dataset.lower() in ('mnist','fashionmnist'):
+        model_test = PreActResNet18(in_channel=1).cuda()
     else:
         model_test = PreActResNet18().cuda()
     model_test.load_state_dict(best_state_dict)
     model_test.float()
     model_test.eval()
 
-    pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 1, 10)
+    pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 1, 1)
     test_loss, test_acc = evaluate_standard(test_loader, model_test)
 
     logger.info('Test Loss \t Test Acc \t PGD Loss \t PGD Acc')
