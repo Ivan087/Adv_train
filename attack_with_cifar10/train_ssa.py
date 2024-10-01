@@ -4,11 +4,11 @@ import logging
 import os
 import time
 from tqdm import tqdm
-
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from dct import *
 # from svrg import SVRG
 # from apex import amp
 
@@ -34,7 +34,7 @@ def get_args():
     parser.add_argument('--alpha', default=10, type=float, help='Step size')
     parser.add_argument('--delta-init', default='random', choices=['zero', 'random', 'previous'],
         help='Perturbation initialization method')
-    parser.add_argument('--out-dir', default='train_output', type=str, help='Output directory')
+    parser.add_argument('--out-dir', default='train_fgsm_output', type=str, help='Output directory')
     parser.add_argument('--seed', default=0, type=int, help='Random seed')
     parser.add_argument('--early-stop', action='store_true', help='Early stop if overfitting occurs')
     parser.add_argument('--opt-level', default='O2', type=str, choices=['O0', 'O1', 'O2'],
@@ -43,6 +43,10 @@ def get_args():
         help='If loss_scale is "dynamic", adaptively adjust the loss scale over time')
     parser.add_argument('--master-weights', action='store_true',
         help='Maintain FP32 master weights to accompany any FP16 model weights, not applicable for O1 opt level')
+    parser.add_argument('--ssa', action='store_true',
+        help='Whether to inculde SSA to process the feature maps')
+    parser.add_argument('--rho', type=float, default=0.5,
+        help='Parameter for SSA modify the uniform mask')
     return parser.parse_args()
 
 
@@ -76,7 +80,7 @@ def main():
     epsilon = (args.epsilon / 255.) / std
     alpha = (args.alpha / 255.) / std
     pgd_alpha = (2 / 255.) / std
-
+    
     if args.dataset.lower() in ('mnist','fashionmnist'):
          model = PreActResNet18(in_channel=1).cuda()
     else:
@@ -90,8 +94,8 @@ def main():
     # model, opt = amp.initialize(model, opt, **amp_args)
     criterion = nn.CrossEntropyLoss()
 
-    # if args.delta_init == 'previous':
-    #     delta = torch.zeros(args.batch_size, 3, 32, 32).cuda()
+    if args.delta_init == 'previous':
+        delta = torch.zeros(args.batch_size, 3, 32, 32).cuda()
 
     lr_steps = args.epochs * len(train_loader)
     if args.lr_schedule == 'cyclic':
@@ -116,54 +120,38 @@ def main():
             if args.delta_init != 'previous':
                 delta = torch.zeros_like(X).cuda()
             if args.delta_init == 'random':
-                for j in range(len(epsilon)):
-                    # len(epsilon) == 3: initialize noise for each channel
-                    delta[:, j, :, :].uniform_(-epsilon[j][0][0].item(), epsilon[j][0][0].item())
+                if args.ssa:
+                    ## TODO: initialize delta with Gaussian faster
+                    for j in range(len(epsilon)):
+                        delta[:, j, :, :].normal_(mean=0., std=epsilon[j][0][0].item())
+                else:
+                    for j in range(len(epsilon)):
+                        delta[:, j, :, :].uniform_(-epsilon[j][0][0].item(), epsilon[j][0][0].item())
                 delta.data = clamp(delta, lower_limit - X, upper_limit - X)
             delta.requires_grad = True
-
-            ### Gradient one
+            if args.ssa:
+                x_dct = dct_2d(X+delta).cuda()
+                mask = (torch.rand_like(x_dct)* 2 * args.rho + 1 - args.rho).cuda()
+                x_idct = idct_2d(mask * x_dct)
+                output = model(x_idct)
             output = model(X + delta[:X.size(0)])
-            # print(output.shape, y.shape)
-            # print(y.dtype)
             loss = F.cross_entropy(output, y)
             # with amp.scale_loss(loss, opt) as scaled_loss:
             #     scaled_loss.backward()
             loss.backward()
             grad = delta.grad.detach()
-
-
-            ### Gradient two
-            num_class = 10
-            X_bar = torch.mean(X,axis=0,keepdim=True)
-            y_bar = (torch.mean(y.float(),axis=0,keepdim=True)-1/num_class).long()
-            delta_bar = torch.mean(delta,axis=0,keepdim=True)
-            delta_bar.retain_grad()
-            output = model(X_bar + delta_bar)
-            # print(output.shape,y_bar.shape)
-            loss = F.cross_entropy(output, y_bar)
-            # print(loss)
-            loss.backward()
-            grad_bar = delta_bar.grad.detach().repeat(grad.size(0),1,1,1)
-
-            ### Gradient Three
-            avg_grad = torch.mean(grad,axis=0).repeat(grad.size(0),1,1,1)
-
-            # Update delta for attack
-            delta.data = clamp(delta + alpha * torch.sign(grad+grad_bar-avg_grad), -epsilon, epsilon)
+            # X_bar = torch.mean(X).repeat(X.size[0],1,1,1)
+            # avg_grad = torch.mean(grad,axis=0).repeat(grad.size[0],1,1,1)
+            delta.data = clamp(delta + alpha * torch.sign(grad), -epsilon, epsilon)
             delta.data[:X.size(0)] = clamp(delta[:X.size(0)], lower_limit - X, upper_limit - X)
-
             delta = delta.detach()
             output = model(X + delta[:X.size(0)])
-            ## forward training
             loss = criterion(output, y)
             opt.zero_grad()
             # with amp.scale_loss(loss, opt) as scaled_loss:
             #     scaled_loss.backward()
             loss.backward()
             opt.step()
-            if i % 50 == 0:
-                print('Epoch {} Iteration {} Loss {:.6f}'.format(epoch,i,loss.item()* y.size(0)))
             train_loss += loss.item() * y.size(0)
             train_acc += (output.max(1)[1] == y).sum().item()
             train_n += y.size(0)

@@ -8,6 +8,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from dct import *
 # from svrg import SVRG
 # from apex import amp
 
