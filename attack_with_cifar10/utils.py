@@ -6,7 +6,7 @@ from torch.utils.data.sampler import SubsetRandomSampler
 import numpy as np
 from tqdm import tqdm
 import os
-
+from TinyImageNet import TinyImageNet
 
 DATASET = os.getenv('DATASET_NAME')
 
@@ -20,6 +20,12 @@ mnist_std = 0.3081
 # FashionMNIST meand and std
 fmnist_mean = 0.2861
 fmnist_std = 0.3530
+
+# TinyImagenet
+imagenet_mean = [0.485, 0.456, 0.406]
+imagenet_std = [0.229, 0.224, 0.225]
+data_dir = '../../tiny-imagenet-200/'
+
 
 if DATASET == 'MNIST' or DATASET == 'mnist':
     dataset_mean = mnist_mean
@@ -36,6 +42,11 @@ elif DATASET == 'CIFAR10' or DATASET == 'cifar10':
     dataset_std = cifar10_std
     mu = torch.tensor(cifar10_mean).view(3,1,1).cuda()
     std = torch.tensor(cifar10_std).view(3,1,1).cuda()
+elif DATASET.lower() == 'tinyimagenet':
+    dataset_mean = imagenet_mean
+    dataset_std = imagenet_std
+    mu = torch.tensor(imagenet_mean).view(3,1,1).cuda()
+    std = torch.tensor(imagenet_std).view(3,1,1).cuda()
 
 
 upper_limit = ((1 - mu)/ std)
@@ -48,7 +59,7 @@ def clamp(X, lower_limit, upper_limit):
 
 def get_loaders(dir_, batch_size):
     train_transform = transforms.Compose([
-        transforms.RandomCrop(32, padding=4),
+        # transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         transforms.Normalize(dataset_mean, dataset_std),
@@ -75,6 +86,10 @@ def get_loaders(dir_, batch_size):
             dir_, train=True, transform=train_transform, download=True)
         test_dataset = datasets.FashionMNIST(
             dir_, train=False, transform=test_transform, download=True)
+    elif DATASET.lower() == 'tinyimagenet':
+        dir_ = dir_.replace('cifar-data','tinyimagenet') 
+        train_dataset = TinyImageNet(data_dir, train=True,transform=train_transform)
+        test_dataset = TinyImageNet(data_dir, train=False, transform=test_transform)  
     train_loader = torch.utils.data.DataLoader(
         dataset=train_dataset,
         batch_size=batch_size,
