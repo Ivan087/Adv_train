@@ -23,6 +23,8 @@ from utils import (clamp, get_loaders, attack_pgd, evaluate_pgd, evaluate_standa
 # model_path = './train_alg2_output/model.pth'
 if args.dataset.lower() in ('mnist','fashionmnist'):
 	model_test = PreActResNet18(in_channel=1).cuda()
+elif args.dataset.lower() in ('tinyimagenet'):
+    model_test = PreActResNet18(in_channel=3,num_classes=200).cuda()
 else:
     model_test = PreActResNet18().cuda()
 
@@ -40,6 +42,8 @@ elif args.dataset.lower() == 'mnist':
      data_dir = '../../mnist'
 elif args.dataset.lower() == 'fashionmnist':
      data_dir = '../../fashionmnist'
+elif args.dataset.lower() == 'tinyimagenet':
+     data_dir = '../../tinyimagenet'
      
 train_loader, test_loader = get_loaders(data_dir, BATCHSIZE)
 pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, ATTACK_ITER, RESTARTS)

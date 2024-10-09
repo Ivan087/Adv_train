@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from dct import *
 # from svrg import SVRG
 # from apex import amp
-
+# from torchinfo import summary
 from preact_resnet import PreActResNet18
 # from utils import (upper_limit, lower_limit, std, clamp, get_loaders,
 #     attack_pgd, evaluate_pgd, evaluate_standard)
@@ -83,8 +83,11 @@ def main():
     
     if args.dataset.lower() in ('mnist','fashionmnist'):
          model = PreActResNet18(in_channel=1).cuda()
+    elif args.dataset.lower() in ('tinyimagenet'):
+        model = PreActResNet18(in_channel=3,num_classes=200).cuda()
     else:
         model = PreActResNet18().cuda()
+    # summary(model, (8,3, 64, 64))
     model.train()
 
     opt = torch.optim.SGD(model.parameters(), lr=args.lr_max, momentum=args.momentum, weight_decay=args.weight_decay)
@@ -140,8 +143,6 @@ def main():
             #     scaled_loss.backward()
             loss.backward()
             grad = delta.grad.detach()
-            # X_bar = torch.mean(X).repeat(X.size[0],1,1,1)
-            # avg_grad = torch.mean(grad,axis=0).repeat(grad.size[0],1,1,1)
             delta.data = clamp(delta + alpha * torch.sign(grad), -epsilon, epsilon)
             delta.data[:X.size(0)] = clamp(delta[:X.size(0)], lower_limit - X, upper_limit - X)
             delta = delta.detach()
@@ -179,7 +180,9 @@ def main():
 
     # Evaluation
     if args.dataset.lower() in ('mnist','fashionmnist'):
-         model_test = PreActResNet18(in_channel=1).cuda()
+        model_test = PreActResNet18(in_channel=1).cuda()
+    elif args.dataset.lower() in ('tinyimagenet'):
+        model_test = PreActResNet18(in_channel=3,num_classes=200).cuda()
     else:
         model_test = PreActResNet18().cuda()
     model_test.load_state_dict(best_state_dict)

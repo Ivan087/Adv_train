@@ -172,3 +172,13 @@
 [2024/09/05 09:40:41] - Batch size 1024 	 attack iteration 20 	 restarts 5
 [2024/09/05 09:40:41] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
 [2024/09/05 09:40:41] - 0.4501 	 	 0.8912 	 4.3504 	 0.0026
+[2024/10/02 12:49:53] - 
+[2024/10/02 12:49:53] - Output model ./fgsm_ssa/model.pth
+[2024/10/02 12:49:53] - Batch size 1024 	 attack iteration 10 	 restarts 1
+[2024/10/02 12:49:53] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/02 12:49:53] - 0.4694 	 	 0.8747 	 4.5847 	 0.0280
+[2024/10/02 12:58:49] - 
+[2024/10/02 12:58:49] - Output model ./fgsm_ssa/model.pth
+[2024/10/02 12:58:49] - Batch size 1024 	 attack iteration 20 	 restarts 5
+[2024/10/02 12:58:49] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/02 12:58:49] - 0.4694 	 	 0.8747 	 6.1777 	 0.0125
