@@ -137,7 +137,8 @@ def main():
                 mask = (torch.rand_like(x_dct)* 2 * args.rho + 1 - args.rho).cuda()
                 x_idct = idct_2d(mask * x_dct)
                 output = model(x_idct)
-            output = model(X + delta[:X.size(0)])
+            else:
+                output = model(X + delta[:X.size(0)])
             loss = F.cross_entropy(output, y)
             # with amp.scale_loss(loss, opt) as scaled_loss:
             #     scaled_loss.backward()
