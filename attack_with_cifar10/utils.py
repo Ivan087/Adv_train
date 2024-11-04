@@ -159,6 +159,21 @@ def evaluate_pgd(test_loader, model, attack_iters, restarts):
             n += y.size(0)
     return pgd_loss/n, pgd_acc/n
 
+def evaluate_attack(model,test_loader,attack):
+    model.eval()
+    correct = 0
+    total = 0
+    
+    for data in test_loader:
+        images, labels = data
+        images, labels = images.cuda(), labels.cuda()
+        adv_images = attack(images, labels)
+        with torch.no_grad():
+            outputs = model(adv_images)
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+    return correct / total
 
 def evaluate_standard(test_loader, model):
     test_loss = 0
