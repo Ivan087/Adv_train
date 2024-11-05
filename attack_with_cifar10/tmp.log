@@ -1,0 +1,415 @@
+[2024/10/10 11:20:38] - 
+[2024/10/10 11:20:38] - Output model ./tiny_fgsm/model.pth
+[2024/10/10 11:20:38] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 11:20:38] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 11:20:38] - 2.5249 	 	 0.4257 	 2.9571 	 0.0886
+[2024/10/10 11:22:37] - 
+[2024/10/10 11:22:37] - Output model ./tiny_ssa/model.pth
+[2024/10/10 11:22:37] - Batch size 256 	 attack iteration 10 	 restarts 1
+[2024/10/10 11:22:37] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 11:22:37] - 2.3024 	 	 0.4640 	 5.4145 	 0.0000
+[2024/10/10 11:27:32] - 
+[2024/10/10 11:27:32] - Output model ./tiny_ssa/model.pth
+[2024/10/10 11:27:32] - Batch size 256 	 attack iteration 20 	 restarts 5
+[2024/10/10 11:27:32] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 11:27:32] - 2.3024 	 	 0.4640 	 6.5940 	 0.0000
+[2024/10/10 11:51:50] - 
+[2024/10/10 11:51:50] - Output model ./tiny_fgsm/model.pth
+[2024/10/10 11:51:50] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 11:51:50] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 11:51:50] - 2.5249 	 	 0.4257 	 0.0000 	 3.2600
+[2024/10/10 11:53:03] - 
+[2024/10/10 11:53:03] - Output model ./tiny_ssa/model.pth
+[2024/10/10 11:53:03] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 11:53:03] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 11:53:03] - 2.3024 	 	 0.4640 	 0.0000 	 0.0809
+[2024/10/10 11:53:40] - 
+[2024/10/10 11:53:40] - Output model ./tiny_fgsm/model.pth
+[2024/10/10 11:53:40] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 11:53:40] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 11:53:40] - 2.5249 	 	 0.4257 	 0.0000 	 0.0326
+[2024/10/10 12:03:04] - 
+[2024/10/10 12:03:04] - Output model ./tiny_fgsm/model.pth
+[2024/10/10 12:03:04] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 12:03:04] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 12:03:04] - 2.5249 	 	 0.4257 	 0.0000 	 0.0276
+[2024/10/10 12:05:38] - 
+[2024/10/10 12:05:38] - Output model ./tiny_ssa/model.pth
+[2024/10/10 12:05:38] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 12:05:38] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 12:05:38] - 2.3024 	 	 0.4640 	 0.0000 	 0.0065
+[2024/10/10 12:49:14] - 
+[2024/10/10 12:49:14] - Output model ./tiny_fgsm/model.pth
+[2024/10/10 12:49:14] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 12:49:14] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 12:49:14] - 2.5249 	 	 0.4257 	 0.0000 	 0.3465
+[2024/10/10 12:52:39] - 
+[2024/10/10 12:52:39] - Output model ./tiny_ssa/model.pth
+[2024/10/10 12:52:39] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/10 12:52:39] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/10 12:52:39] - 2.3024 	 	 0.4640 	 0.0000 	 0.0918
+[2024/10/31 20:02:40] - 
+[2024/10/31 20:02:40] - Output model ./cifar_free/model.pth
+[2024/10/31 20:02:40] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/31 20:02:40] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:02:40] - 0.6395 	 	 0.7854 	 0.0000 	 0.3265
+[2024/10/31 20:02:46] - 
+[2024/10/31 20:02:46] - Output model ./fashion_free/model.pth
+[2024/10/31 20:02:46] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/31 20:02:46] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:02:46] - 0.2734 	 	 0.9209 	 0.0000 	 0.1433
+[2024/10/31 20:03:12] - 
+[2024/10/31 20:03:12] - Output model ./tiny_free/model.pth
+[2024/10/31 20:03:12] - Batch size 512 	 attack iteration 10 	 restarts 1
+[2024/10/31 20:03:12] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:03:12] - 2.3081 	 	 0.4741 	 0.0000 	 0.0271
+[2024/10/31 20:04:23] - 
+[2024/10/31 20:04:23] - Output model ./cifar_free/model.pth
+[2024/10/31 20:04:23] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/10/31 20:04:23] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:04:23] - 0.6395 	 	 0.7854 	 0.0000 	 0.3110
+[2024/10/31 20:05:18] - 
+[2024/10/31 20:05:18] - Output model ./fashion_free/model.pth
+[2024/10/31 20:05:18] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/10/31 20:05:18] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:05:18] - 0.2734 	 	 0.9209 	 0.0000 	 0.1340
+[2024/10/31 20:09:37] - 
+[2024/10/31 20:09:37] - Output model ./tiny_free/model.pth
+[2024/10/31 20:09:37] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/10/31 20:09:37] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:09:37] - 2.3081 	 	 0.4741 	 0.0000 	 0.0254
+[2024/10/31 20:10:48] - 
+[2024/10/31 20:10:48] - Output model ./cifar_free/model.pth
+[2024/10/31 20:10:48] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/10/31 20:10:48] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:10:48] - 0.6395 	 	 0.7854 	 0.0000 	 0.7300
+[2024/10/31 20:11:44] - 
+[2024/10/31 20:11:44] - Output model ./fashion_free/model.pth
+[2024/10/31 20:11:44] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/10/31 20:11:44] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:11:44] - 0.2734 	 	 0.9209 	 0.0000 	 0.9110
+[2024/10/31 20:16:05] - 
+[2024/10/31 20:16:05] - Output model ./tiny_free/model.pth
+[2024/10/31 20:16:05] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/10/31 20:16:05] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/10/31 20:16:05] - 2.3081 	 	 0.4741 	 0.0000 	 0.4004
+################################################################################[2024/11/04 15:36:27] - 
+[2024/11/04 15:36:27] - Output model ./out_fgsm_fashion/model.pth
+[2024/11/04 15:36:27] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:36:27] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:36:27] - 0.2114 	 	 0.9257 	 0.0000 	 0.1034
+[2024/11/04 15:36:35] - 
+[2024/11/04 15:36:35] - Output model ./out_fgsm_cifar/model.pth
+[2024/11/04 15:36:35] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:36:35] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:36:35] - 0.6769 	 	 0.7774 	 0.0000 	 0.3344
+[2024/11/04 15:37:01] - 
+[2024/11/04 15:37:01] - Output model ./out_fgsm_tiny/model.pth
+[2024/11/04 15:37:01] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:37:01] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:37:01] - 2.4125 	 	 0.4560 	 0.0000 	 0.0341
+[2024/11/04 15:37:08] - 
+[2024/11/04 15:37:08] - Output model ./out_fgsm_ssa_fashion/model.pth
+[2024/11/04 15:37:08] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:37:08] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:37:08] - 0.2242 	 	 0.9315 	 0.0000 	 0.1182
+[2024/11/04 15:37:17] - 
+[2024/11/04 15:37:17] - Output model ./out_fgsm_ssa_cifar/model.pth
+[2024/11/04 15:37:17] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:37:17] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:37:17] - 0.5213 	 	 0.8219 	 0.0000 	 0.3785
+[2024/11/04 15:37:43] - 
+[2024/11/04 15:37:43] - Output model ./out_fgsm_ssa_tiny/model.pth
+[2024/11/04 15:37:43] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:37:43] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:37:43] - 2.0510 	 	 0.5160 	 0.0000 	 0.0649
+[2024/11/04 15:38:38] - 
+
+[2024/11/04 15:38:38] - Output model ./out_fgsm_fashion/model.pth
+[2024/11/04 15:38:38] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:38:38] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:38:38] - 0.2114 	 	 0.9257 	 0.0000 	 0.1026
+[2024/11/04 15:39:44] - 
+[2024/11/04 15:39:44] - Output model ./out_fgsm_cifar/model.pth
+[2024/11/04 15:39:44] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:39:44] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:39:44] - 0.6769 	 	 0.7774 	 0.0000 	 0.3163
+[2024/11/04 15:44:07] - 
+[2024/11/04 15:44:07] - Output model ./out_fgsm_tiny/model.pth
+[2024/11/04 15:44:07] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:44:07] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:44:07] - 2.4125 	 	 0.4560 	 0.0000 	 0.0311
+[2024/11/04 15:45:02] - 
+[2024/11/04 15:45:02] - Output model ./out_fgsm_ssa_fashion/model.pth
+[2024/11/04 15:45:02] - Algorithm FGSM 	 Dataset fashionmnist 	 Attack Method pgd
+[2024/11/04 15:45:02] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:45:02] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:45:02] - 0.2242 	 	 0.9315 	 0.0000 	 0.1129
+[2024/11/04 15:46:08] - 
+[2024/11/04 15:46:08] - Algorithm FGSM 	 Dataset cifar10 	 Attack Method pgd
+[2024/11/04 15:46:08] - Output model ./out_fgsm_ssa_cifar/model.pth
+[2024/11/04 15:46:08] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:46:08] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:46:08] - 0.5213 	 	 0.8219 	 0.0000 	 0.3462
+[2024/11/04 15:50:28] - 
+[2024/11/04 15:50:28] - Algorithm FGSM 	 Dataset tinyimagenet 	 Attack Method pgd
+[2024/11/04 15:50:28] - Output model ./out_fgsm_ssa_tiny/model.pth
+[2024/11/04 15:50:28] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:50:28] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:50:28] - 2.0510 	 	 0.5160 	 0.0000 	 0.0562
+[2024/11/04 15:51:22] - 
+
+[2024/11/04 15:51:22] - Algorithm FGSM 	 Attack Method bim 	 Dataset fashionmnist
+[2024/11/04 15:51:22] - Output model ./out_fgsm_fashion/model.pth
+[2024/11/04 15:51:22] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:51:22] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:51:22] - 0.2114 	 	 0.9257 	 0.0000 	 0.9167
+[2024/11/04 15:52:29] - 
+[2024/11/04 16:14:14] - Algorithm FGSM 	 Attack Method bim 	 Dataset fashionmnist
+[2024/11/04 16:14:14] - Output model ./out_fgsm_ssa_fashion/model.pth
+[2024/11/04 16:14:14] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 16:14:14] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 16:14:14] - 0.2242 	 	 0.9315 	 0.0000 	 0.9060
+[2024/11/04 16:14:14] - 
+[2024/11/04 15:52:29] - Algorithm FGSM 	 Attack Method bim 	 Dataset cifar10
+[2024/11/04 15:52:29] - Output model ./out_fgsm_cifar/model.pth
+[2024/11/04 15:52:29] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:52:29] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:52:29] - 0.6769 	 	 0.7774 	 0.0000 	 0.7230
+[2024/11/04 15:58:00] - 
+[2024/11/04 15:58:00] - Algorithm FGSM 	 Attack Method bim 	 Dataset cifar10
+[2024/11/04 15:58:00] - Output model ./out_fgsm_ssa_cifar/model.pth
+[2024/11/04 15:58:00] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/04 15:58:00] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 15:58:00] - 0.5213 	 	 0.8219 	 0.0000 	 0.7588
+[2024/11/04 16:02:21] - 
+[2024/11/04 16:02:21] - Algorithm FGSM 	 Attack Method bim 	 Dataset tinyimagenet
+[2024/11/04 16:02:21] - Output model ./out_fgsm_tiny/model.pth
+[2024/11/04 16:02:21] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/04 16:02:21] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 16:02:21] - 2.4125 	 	 0.4560 	 0.0000 	 0.3908
+[2024/11/04 16:06:43] - 
+[2024/11/04 16:06:43] - Algorithm FGSM 	 Attack Method bim 	 Dataset tinyimagenet
+[2024/11/04 16:06:43] - Output model ./out_fgsm_ssa_tiny/model.pth
+[2024/11/04 16:06:43] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/04 16:06:43] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/04 16:06:43] - 2.0510 	 	 0.5160 	 0.0000 	 0.4316
+
+#######################################################################################
+[2024/11/05 15:48:14] - 
+[2024/11/05 15:48:14] - Algorithm FGSM 	 Attack Method fgsm 	 Dataset fashionmnist
+[2024/11/05 15:48:14] - Output model ./out_fgsm_fashion/model.pth
+[2024/11/05 15:48:14] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:48:14] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:48:14] - 0.2114 	 	 0.9257 	 0.0000 	 0.1034
+[2024/11/05 15:48:21] - 
+[2024/11/05 15:48:21] - Algorithm FGSM 	 Attack Method fgsm 	 Dataset fashionmnist
+[2024/11/05 15:48:21] - Output model ./out_fgsm_ssa_fashion/model.pth
+[2024/11/05 15:48:21] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:48:21] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:48:21] - 0.2242 	 	 0.9315 	 0.0000 	 0.1182
+[2024/11/05 15:48:30] - 
+[2024/11/05 15:48:30] - Algorithm FGSM 	 Attack Method fgsm 	 Dataset cifar10
+[2024/11/05 15:48:30] - Output model ./out_fgsm_cifar/model.pth
+[2024/11/05 15:48:30] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:48:30] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:48:30] - 0.6769 	 	 0.7774 	 0.0000 	 0.3344
+[2024/11/05 15:48:38] - 
+[2024/11/05 15:48:38] - Algorithm FGSM 	 Attack Method fgsm 	 Dataset cifar10
+[2024/11/05 15:48:38] - Output model ./out_fgsm_ssa_cifar/model.pth
+[2024/11/05 15:48:38] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:48:38] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:48:38] - 0.5213 	 	 0.8219 	 0.0000 	 0.3785
+[2024/11/05 15:49:04] - 
+[2024/11/05 15:49:04] - Algorithm FGSM 	 Attack Method fgsm 	 Dataset tinyimagenet
+[2024/11/05 15:49:04] - Output model ./out_fgsm_tiny/model.pth
+[2024/11/05 15:49:04] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:49:04] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:49:04] - 2.4125 	 	 0.4560 	 0.0000 	 0.0341
+[2024/11/05 15:49:30] - 
+[2024/11/05 15:49:30] - Algorithm FGSM 	 Attack Method fgsm 	 Dataset tinyimagenet
+[2024/11/05 15:49:30] - Output model ./out_fgsm_ssa_tiny/model.pth
+[2024/11/05 15:49:30] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:49:30] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:49:30] - 2.0510 	 	 0.5160 	 0.0000 	 0.0649
+[2024/11/05 15:50:25] - 
+[2024/11/05 15:50:25] - Algorithm FGSM 	 Attack Method pgd 	 Dataset fashionmnist
+[2024/11/05 15:50:25] - Output model ./out_fgsm_fashion/model.pth
+[2024/11/05 15:50:25] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:50:25] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:50:25] - 0.2114 	 	 0.9257 	 0.0000 	 0.1026
+[2024/11/05 15:51:19] - 
+[2024/11/05 15:51:19] - Algorithm FGSM 	 Attack Method pgd 	 Dataset fashionmnist
+[2024/11/05 15:51:19] - Output model ./out_fgsm_ssa_fashion/model.pth
+[2024/11/05 15:51:19] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:51:19] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:51:19] - 0.2242 	 	 0.9315 	 0.0000 	 0.1129
+[2024/11/05 15:52:26] - 
+[2024/11/05 15:52:26] - Algorithm FGSM 	 Attack Method pgd 	 Dataset cifar10
+[2024/11/05 15:52:26] - Output model ./out_fgsm_cifar/model.pth
+[2024/11/05 15:52:26] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:52:26] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:52:26] - 0.6769 	 	 0.7774 	 0.0000 	 0.3164
+[2024/11/05 15:53:32] - 
+[2024/11/05 15:53:32] - Algorithm FGSM 	 Attack Method pgd 	 Dataset cifar10
+[2024/11/05 15:53:32] - Output model ./out_fgsm_ssa_cifar/model.pth
+[2024/11/05 15:53:32] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:53:32] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:53:32] - 0.5213 	 	 0.8219 	 0.0000 	 0.3460
+[2024/11/05 15:57:50] - 
+[2024/11/05 15:57:50] - Algorithm FGSM 	 Attack Method pgd 	 Dataset tinyimagenet
+[2024/11/05 15:57:50] - Output model ./out_fgsm_tiny/model.pth
+[2024/11/05 15:57:50] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 15:57:50] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 15:57:50] - 2.4125 	 	 0.4560 	 0.0000 	 0.0311
+[2024/11/05 16:02:09] - 
+[2024/11/05 16:02:09] - Algorithm FGSM 	 Attack Method pgd 	 Dataset tinyimagenet
+[2024/11/05 16:02:09] - Output model ./out_fgsm_ssa_tiny/model.pth
+[2024/11/05 16:02:09] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:02:09] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:02:09] - 2.0510 	 	 0.5160 	 0.0000 	 0.0562
+[2024/11/05 16:03:03] - 
+[2024/11/05 16:03:03] - Algorithm FGSM 	 Attack Method bim 	 Dataset fashionmnist
+[2024/11/05 16:03:03] - Output model ./out_fgsm_fashion/model.pth
+[2024/11/05 16:03:03] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:03:03] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:03:03] - 0.2114 	 	 0.9257 	 0.0000 	 0.9167
+[2024/11/05 16:03:57] - 
+[2024/11/05 16:03:57] - Algorithm FGSM 	 Attack Method bim 	 Dataset fashionmnist
+[2024/11/05 16:03:57] - Output model ./out_fgsm_ssa_fashion/model.pth
+[2024/11/05 16:03:57] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:03:57] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:03:57] - 0.2242 	 	 0.9315 	 0.0000 	 0.9060
+[2024/11/05 16:05:04] - 
+[2024/11/05 16:05:04] - Algorithm FGSM 	 Attack Method bim 	 Dataset cifar10
+[2024/11/05 16:05:04] - Output model ./out_fgsm_cifar/model.pth
+[2024/11/05 16:05:04] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:05:04] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:05:04] - 0.6769 	 	 0.7774 	 0.0000 	 0.7230
+[2024/11/05 16:06:10] - 
+[2024/11/05 16:06:10] - Algorithm FGSM 	 Attack Method bim 	 Dataset cifar10
+[2024/11/05 16:06:10] - Output model ./out_fgsm_ssa_cifar/model.pth
+[2024/11/05 16:06:10] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:06:10] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:06:10] - 0.5213 	 	 0.8219 	 0.0000 	 0.7588
+[2024/11/05 16:10:31] - 
+[2024/11/05 16:10:31] - Algorithm FGSM 	 Attack Method bim 	 Dataset tinyimagenet
+[2024/11/05 16:10:31] - Output model ./out_fgsm_tiny/model.pth
+[2024/11/05 16:10:31] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:10:31] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:10:31] - 2.4125 	 	 0.4560 	 0.0000 	 0.3908
+[2024/11/05 16:14:49] - 
+[2024/11/05 16:14:49] - Algorithm FGSM 	 Attack Method bim 	 Dataset tinyimagenet
+[2024/11/05 16:14:49] - Output model ./out_fgsm_ssa_tiny/model.pth
+[2024/11/05 16:14:49] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:14:49] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:14:49] - 2.0510 	 	 0.5160 	 0.0000 	 0.4316
+[2024/11/05 16:14:56] - 
+
+[2024/11/05 16:14:56] - Algorithm Free 	 Attack Method fgsm 	 Dataset fashionmnist
+[2024/11/05 16:14:56] - Output model ./out_free_fashion/model.pth
+[2024/11/05 16:14:56] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:14:56] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:14:56] - 0.2678 	 	 0.9236 	 0.0000 	 0.1236
+[2024/11/05 16:15:03] - 
+[2024/11/05 16:15:03] - Algorithm Free 	 Attack Method fgsm 	 Dataset fashionmnist
+[2024/11/05 16:15:03] - Output model ./out_free_ssa_fashion/model.pth
+[2024/11/05 16:15:03] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:15:03] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:15:03] - 0.2630 	 	 0.9267 	 0.0000 	 0.7768
+[2024/11/05 16:15:12] - 
+[2024/11/05 16:15:12] - Algorithm Free 	 Attack Method fgsm 	 Dataset cifar10
+[2024/11/05 16:15:12] - Output model ./out_free_cifar/model.pth
+[2024/11/05 16:15:12] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:15:12] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:15:12] - 0.6435 	 	 0.7831 	 0.0000 	 0.3280
+[2024/11/05 16:15:21] - 
+[2024/11/05 16:15:21] - Algorithm Free 	 Attack Method fgsm 	 Dataset cifar10
+[2024/11/05 16:15:21] - Output model ./out_free_ssa_cifar/model.pth
+[2024/11/05 16:15:21] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:15:21] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:15:21] - 0.5824 	 	 0.8049 	 0.0000 	 0.3678
+[2024/11/05 16:15:46] - 
+[2024/11/05 16:15:46] - Algorithm Free 	 Attack Method fgsm 	 Dataset tinyimagenet
+[2024/11/05 16:15:46] - Output model ./out_free_tiny/model.pth
+[2024/11/05 16:15:46] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:15:46] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:15:46] - 2.3150 	 	 0.4680 	 0.0000 	 0.0281
+[2024/11/05 16:16:12] - 
+[2024/11/05 16:16:12] - Algorithm Free 	 Attack Method fgsm 	 Dataset tinyimagenet
+[2024/11/05 16:16:12] - Output model ./out_free_ssa_tiny/model.pth
+[2024/11/05 16:16:12] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:16:12] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:16:12] - 2.1520 	 	 0.4941 	 0.0000 	 0.0444
+[2024/11/05 16:17:06] - 
+[2024/11/05 16:17:06] - Algorithm Free 	 Attack Method pgd 	 Dataset fashionmnist
+[2024/11/05 16:17:06] - Output model ./out_free_fashion/model.pth
+[2024/11/05 16:17:06] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:17:06] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:17:06] - 0.2678 	 	 0.9236 	 0.0000 	 0.1180
+[2024/11/05 16:18:01] - 
+[2024/11/05 16:18:01] - Algorithm Free 	 Attack Method pgd 	 Dataset fashionmnist
+[2024/11/05 16:18:01] - Output model ./out_free_ssa_fashion/model.pth
+[2024/11/05 16:18:01] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:18:01] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:18:01] - 0.2630 	 	 0.9267 	 0.0000 	 0.7440
+[2024/11/05 16:19:08] - 
+[2024/11/05 16:19:08] - Algorithm Free 	 Attack Method pgd 	 Dataset cifar10
+[2024/11/05 16:19:08] - Output model ./out_free_cifar/model.pth
+[2024/11/05 16:19:08] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:19:08] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:19:08] - 0.6435 	 	 0.7831 	 0.0000 	 0.3093
+[2024/11/05 16:20:14] - 
+[2024/11/05 16:20:14] - Algorithm Free 	 Attack Method pgd 	 Dataset cifar10
+[2024/11/05 16:20:14] - Output model ./out_free_ssa_cifar/model.pth
+[2024/11/05 16:20:14] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:20:14] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:20:14] - 0.5824 	 	 0.8049 	 0.0000 	 0.3375
+[2024/11/05 16:24:33] - 
+[2024/11/05 16:24:33] - Algorithm Free 	 Attack Method pgd 	 Dataset tinyimagenet
+[2024/11/05 16:24:33] - Output model ./out_free_tiny/model.pth
+[2024/11/05 16:24:33] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:24:33] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:24:33] - 2.3150 	 	 0.4680 	 0.0000 	 0.0255
+[2024/11/05 16:28:52] - 
+[2024/11/05 16:28:52] - Algorithm Free 	 Attack Method pgd 	 Dataset tinyimagenet
+[2024/11/05 16:28:52] - Output model ./out_free_ssa_tiny/model.pth
+[2024/11/05 16:28:52] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:28:52] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:28:52] - 2.1520 	 	 0.4941 	 0.0000 	 0.0400
+[2024/11/05 16:29:46] - 
+[2024/11/05 16:29:46] - Algorithm Free 	 Attack Method bim 	 Dataset fashionmnist
+[2024/11/05 16:29:46] - Output model ./out_free_fashion/model.pth
+[2024/11/05 16:29:46] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:29:46] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:29:46] - 0.2678 	 	 0.9236 	 0.0000 	 0.9142
+[2024/11/05 16:30:40] - 
+[2024/11/05 16:30:40] - Algorithm Free 	 Attack Method bim 	 Dataset fashionmnist
+[2024/11/05 16:30:40] - Output model ./out_free_ssa_fashion/model.pth
+[2024/11/05 16:30:40] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:30:40] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:30:40] - 0.2630 	 	 0.9267 	 0.0000 	 0.9114
+[2024/11/05 16:31:47] - 
+[2024/11/05 16:31:47] - Algorithm Free 	 Attack Method bim 	 Dataset cifar10
+[2024/11/05 16:31:47] - Output model ./out_free_cifar/model.pth
+[2024/11/05 16:31:47] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:31:47] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:31:47] - 0.6435 	 	 0.7831 	 0.0000 	 0.7330
+[2024/11/05 16:32:53] - 
+[2024/11/05 16:32:53] - Algorithm Free 	 Attack Method bim 	 Dataset cifar10
+[2024/11/05 16:32:53] - Output model ./out_free_ssa_cifar/model.pth
+[2024/11/05 16:32:53] - Batch size 1024 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:32:53] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:32:53] - 0.5824 	 	 0.8049 	 0.0000 	 0.7469
+[2024/11/05 16:37:13] - 
+[2024/11/05 16:37:13] - Algorithm Free 	 Attack Method bim 	 Dataset tinyimagenet
+[2024/11/05 16:37:13] - Output model ./out_free_tiny/model.pth
+[2024/11/05 16:37:13] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:37:13] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:37:13] - 2.3150 	 	 0.4680 	 0.0000 	 0.3956
+[2024/11/05 16:41:32] - 
+[2024/11/05 16:41:32] - Algorithm Free 	 Attack Method bim 	 Dataset tinyimagenet
+[2024/11/05 16:41:32] - Output model ./out_free_ssa_tiny/model.pth
+[2024/11/05 16:41:32] - Batch size 512 	 attack iteration 20 	 restarts 1
+[2024/11/05 16:41:32] - Test Loss 	 Test Acc 	 PGD Loss 	 PGD Acc
+[2024/11/05 16:41:32] - 2.1520 	 	 0.4941 	 0.0000 	 0.4185
