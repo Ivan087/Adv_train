@@ -109,9 +109,8 @@ plt.show()
 ##########################
 x_dct = dct_2d(torch.tensor(image).unsqueeze(0),'ortho').squeeze(0)
 mask = (torch.rand_like(x_dct)* 2 * 0.3 + 1 - 0.3)
-print(x_dct.min(),x_dct.max())
-noise = np.random.uniform(low=x_dct.min(), high=x_dct.max()/2, size=x_dct.size()).astype(dtype=np.float32)
-# noise = np.random.uniform(low=0.0, high=1.0, size=x_dct.size()).astype(dtype=np.float32)
+# noise = np.random.uniform(low=x_dct.min(), high=x_dct.max()/2, size=x_dct.size()).astype(dtype=np.float32)
+noise = np.random.uniform(low=0.0, high=1.0, size=x_dct.size()).astype(dtype=np.float32)
 dct_spectrum = np.log(np.abs(x_dct + noise) + 1e-10)  
 
 plt.subplot(141)
@@ -140,3 +139,9 @@ plt.show()
 
 ###############################
 uni_noise = np.random.uniform(low=fft_2d(image).min(), high=fft_2d(image).mean(), size=image.shape).astype(dtype=np.float32)
+gauss_noise = np.random.normal(0, 1, image.shape)
+print(np.abs(x_dct).min(),np.abs(x_dct).max())
+print(np.log(np.abs(x_dct)).min(),np.log(np.abs(x_dct)).max())
+x = idct_2d((x_dct+0.02),'ortho')
+plt.imshow(x)
+plt.show()
