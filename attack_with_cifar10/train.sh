@@ -24,13 +24,17 @@
 # python train_ssa.py --batch-size 512 --epochs 20 --dataset tinyimagenet --ssa --out-dir out_fgsm_ssa_tiny
 
 ##################### Free and SSA #####################
-python train_free_ssa.py --out-dir out_free_fashion --dataset fashionmnist --batch-size 1024 --epochs 20 
-python train_free_ssa.py --out-dir out_free_cifar --dataset cifar10 --batch-size 1024 --epochs 20 
-python train_free_ssa.py --out-dir out_free_tiny --dataset tinyimagenet --batch-size 512 --epochs 20 
+# python train_free_ssa.py --out-dir out_free_fashion --dataset fashionmnist --batch-size 1024 --epochs 20 
+# python train_free_ssa.py --out-dir out_free_cifar --dataset cifar10 --batch-size 1024 --epochs 20 
+# python train_free_ssa.py --out-dir out_free_tiny --dataset tinyimagenet --batch-size 512 --epochs 20 
 
-python train_free_ssa.py --out-dir out_free_ssa_fashion --dataset fashionmnist --batch-size 1024 --epochs 20 --ssa 
-python train_free_ssa.py --out-dir out_free_ssa_cifar --dataset cifar10 --batch-size 1024 --epochs 20 --ssa
-python train_free_ssa.py --out-dir out_free_ssa_tiny --dataset tinyimagenet --batch-size 512 --epochs 20 --ssa
+# python train_free_ssa.py --out-dir out_free_ssa_fashion --dataset fashionmnist --batch-size 1024 --epochs 20 --ssa 
+# python train_free_ssa.py --out-dir out_free_ssa_cifar --dataset cifar10 --batch-size 1024 --epochs 20 --ssa
+# python train_free_ssa.py --out-dir out_free_ssa_tiny --dataset tinyimagenet --batch-size 512 --epochs 20 --ssa
 
+###################### Final algorithm ###################
+python merge_alg.py --out-dir out_merge_fashion --dataset fashionmnist --batch-size 1024 --epochs 30 
+python merge_alg.py --out-dir out_merge_cifar --dataset cifar10 --batch-size 512 --epochs 30 
+python merge_alg.py --out-dir out_merge_tiny --dataset tinyimagenet --batch-size 128 --epochs 30 
 
 
